@@ -1,0 +1,118 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Create a vector called stock_prices with the following data points: 23, 27, 23, 21, 34, 24, 25, 30, 37, 30.
+
+Create a vector called day_of_week, which repeats Monday to Friday twice. i.e. ‘Monday’, ‘Tuesday’, ‘Wednesday’, ‘Thursday’, ‘Friday’, ‘Monday’, ‘Tuesday’, ‘Wednesday’, ‘Thursday’, ‘Friday’.
+
+```{r}
+stock_prices<-c(23,27,23, 21,34,24,25,30,37,30)
+```
+
+```{r}
+rep_day_of_week <- rep(c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"), 2)
+```
+
+```{r}
+day_of_week<-c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+```
+
+
+2.Create a vector called day_of_week_factor, which has the same data as day_of_week, but as a factor.
+
+Created a vector called named_stock_prices, which is stock prices, named with days of the week.
+
+```{r}
+day_of_week_factor<- factor(day_of_week)
+```
+
+```{r}
+named_stock_prices<- stock_prices
+names(named_stock_prices) <- day_of_week
+named_stock_prices
+```
+
+
+3. Make a data frame called stock_data with the stock price and day of the week information in it, and View the result.
+
+```{r}
+stock_data<-data.frame(day_of_week, stock_prices)
+stock_data
+```
+
+4.Make a matrix called stock_matrix with 2 columns and 5 rows, so that the stock prices for one week are the first column, and the stock prices for the second week are the second column.
+
+```{r}
+stock_matrix<-matrix(stock_data$stock_prices, nrow = 5, ncol=2, byrow=FALSE)
+stock_matrix
+```
+
+Make a list called stock_list with named elements, that has the individual vectors of stock_prices and day_of_week along with the matrix you made in question 4.
+```{r}
+stock_list <- list(stock_prices,day_of_week, stock_matrix)
+stock_list
+
+```
+
+
+2 Part 2
+In this part of the homework you will practice selecting elements from vectors, data frames, matrices and lists.
+
+Select the 4th, 5th and 6th stock prices from stock_prices.
+
+Select the stock prices greater than 30 from stock_prices.
+
+```{r}
+stock_prices[4]
+stock_prices[5]
+stock_prices[6]
+```
+```{r}
+stock_prices[stock_prices>30]
+```
+4. Select the day_of_week column from the stock_data data frame.
+```{r}
+dow_col <- stock_data[1]
+dow_col
+```
+
+
+Select the rows of the stock_data data frame where the stock_prices is less than 25.
+```{r}
+stock_rows<- stock_data[2]
+stock_rows[stock_rows< 25]
+
+
+```
+
+3. Select the 1st column of the matrix
+
+```{r}
+stock_data[,1]
+```
+
+
+Select the 3rd row of the matrix
+```{r}
+stock_data[3,]
+```
+
+
+Select the 3rd element in the 1st row of the matrix
+null because there are only 2 elements day and price...
+```{r}
+stock_data[1,3]
+```
+
+Select the matrix stock_matrix from stock_list.
+
+```{r}
+stock_list[3]
+```
+
+```{r}
+install.packages("tidyquant")
+library("tidyquant")
+```
