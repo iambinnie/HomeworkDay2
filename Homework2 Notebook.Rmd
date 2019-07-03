@@ -25,7 +25,7 @@ day_of_week<-c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Monday",
 Created a vector called named_stock_prices, which is stock prices, named with days of the week.
 
 ```{r}
-day_of_week_factor<- factor(day_of_week)
+day_of_week_factor<- as.factor(day_of_week)
 ```
 
 ```{r}
@@ -38,7 +38,7 @@ named_stock_prices
 3. Make a data frame called stock_data with the stock price and day of the week information in it, and View the result.
 
 ```{r}
-stock_data<-data.frame(day_of_week, stock_prices)
+stock_data<-data.frame(day_of_week = day_of_week, stock_prices = stock_prices)
 stock_data
 ```
 
@@ -51,7 +51,7 @@ stock_matrix
 
 Make a list called stock_list with named elements, that has the individual vectors of stock_prices and day_of_week along with the matrix you made in question 4.
 ```{r}
-stock_list <- list(stock_prices,day_of_week, stock_matrix)
+stock_list <- list(stock_prices = stock_prices,day_of_week = day_of_week, stock_matrix=stock_matrix)
 stock_list
 
 ```
@@ -68,6 +68,9 @@ Select the stock prices greater than 30 from stock_prices.
 stock_prices[4]
 stock_prices[5]
 stock_prices[6]
+
+stock_prices[4:6]
+stock_prices[c(4, 5, 6)]
 ```
 ```{r}
 stock_prices[stock_prices>30]
@@ -75,6 +78,8 @@ stock_prices[stock_prices>30]
 4. Select the day_of_week column from the stock_data data frame.
 ```{r}
 dow_col <- stock_data[1]
+
+stock_data$day_of_week
 dow_col
 ```
 
@@ -84,7 +89,7 @@ Select the rows of the stock_data data frame where the stock_prices is less than
 stock_rows<- stock_data[2]
 stock_rows[stock_rows< 25]
 
-
+subset(stock_data, stock_prices<25)
 ```
 
 3. Select the 1st column of the matrix
@@ -104,6 +109,7 @@ Select the 3rd element in the 1st row of the matrix
 null because there are only 2 elements day and price...
 ```{r}
 stock_data[1,3]
+stock_data[3,1]
 ```
 
 Select the matrix stock_matrix from stock_list.
